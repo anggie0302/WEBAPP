@@ -43,7 +43,8 @@ const Review = sequelize.define('Review', {
     type: DataTypes.TEXT
   }
 }, {
-  timestamps: true
+  timestamps: true,
+  tableName: 'reviews'
 });
 
 module.exports = Review;

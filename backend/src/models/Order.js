@@ -58,7 +58,8 @@ const Order = sequelize.define('Order', {
     defaultValue: 'unpaid'
   }
 }, {
-  timestamps: true
+  timestamps: true,
+  tableName: 'orders'
 });
 
 module.exports = Order;

@@ -27,7 +27,8 @@ const Driver = sequelize.define('Driver', {
     type: DataTypes.STRING
   }
 }, {
-  timestamps: true
+  timestamps: true,
+  tableName: 'drivers'
 });
 
 module.exports = Driver;

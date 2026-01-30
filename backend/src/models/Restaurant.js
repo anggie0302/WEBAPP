@@ -35,7 +35,8 @@ const Restaurant = sequelize.define('Restaurant', {
     defaultValue: true
   }
 }, {
-  timestamps: true
+  timestamps: true,
+  tableName: 'restaurants'
 });
 
 module.exports = Restaurant;
