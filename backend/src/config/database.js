@@ -10,6 +10,7 @@ const sequelize = new Sequelize(
     host: 'hsnjkg.h.filess.io',
     port: 3307,
     dialect: 'mysql',
+    dialectModule: require('mysql2'), // Fix for Vercel: explicit dialectModule
     logging: false,
     dialectOptions: {
       ssl: {
