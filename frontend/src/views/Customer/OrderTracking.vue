@@ -9,6 +9,7 @@ const route = useRoute();
 const order = ref(null);
 const socket = ref(null);
 const loading = ref(true);
+const pollInterval = ref(null);
 
 // Timeline Statuses
 const steps = [
@@ -50,20 +51,24 @@ onMounted(async () => {
   await fetchOrder();
 
   // Socket Connection
-  socket.value = io(import.meta.env.VITE_SOCKET_URL || 'http://localhost:3000');
-  
-  if (order.value) {
-    socket.value.on(`order_${order.value.id}`, (updatedOrder) => {
-      // Update status locally
-      if (order.value) {
-        order.value.status = updatedOrder.status;
-      }
-    });
+  const socketUrl = import.meta.env.VITE_SOCKET_URL;
+  if (socketUrl) {
+    socket.value = io(socketUrl);
+    if (order.value && socket.value) {
+      socket.value.on(`order_${order.value.id}`, (updatedOrder) => {
+        if (order.value) {
+          order.value.status = updatedOrder.status;
+        }
+      });
+    }
+  } else {
+    pollInterval.value = setInterval(fetchOrder, 5000);
   }
 });
 
 onUnmounted(() => {
   if (socket.value) socket.value.disconnect();
+  if (pollInterval.value) clearInterval(pollInterval.value);
 });
 </script>
 
