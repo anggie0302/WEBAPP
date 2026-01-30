@@ -1,12 +1,24 @@
 const { Sequelize } = require('sequelize');
 const env = require('./env');
 
-const sequelize = new Sequelize(env.DB_NAME, env.DB_USER, env.DB_PASS, {
-  host: env.DB_HOST,
-  port: env.DB_PORT,
-  dialect: 'mysql',
-  logging: false,
-});
+// Hardcode credentials for Vercel Deployment (Tugas)
+const sequelize = new Sequelize(
+  'food_delivery_db_emptyclose', // DB Name
+  'food_delivery_db_emptyclose', // DB User
+  '927a415ab8f87591f48fa82867f910114456e62e', // DB Pass
+  {
+    host: 'hsnjkg.h.filess.io',
+    port: 3307,
+    dialect: 'mysql',
+    logging: false,
+    dialectOptions: {
+      ssl: {
+        require: true,
+        rejectUnauthorized: false
+      }
+    }
+  }
+);
 
 const connectDB = async () => {
   try {
