@@ -1,5 +1,5 @@
 const { Sequelize } = require('sequelize');
-const env = require('./env');
+// const env = require('./env'); // Hapus env local karena tidak ada di Vercel
 
 // Hardcode credentials for Vercel Deployment (Tugas)
 const sequelize = new Sequelize(
@@ -24,7 +24,7 @@ const sequelize = new Sequelize(
 const connectDB = async () => {
   try {
     await sequelize.authenticate();
-    console.log(`Database connected successfully on port ${env.DB_PORT}.`);
+    console.log(`Database connected successfully.`); // Hapus env.DB_PORT
   } catch (error) {
     console.error('Unable to connect to the database:', error);
     process.exit(1);
