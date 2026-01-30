@@ -1,0 +1,110 @@
+:root {
+  --primary-color: #F53D2D; /* Shopee-like Orange/Red */
+  --primary-dark: #d7321f;
+  --secondary-color: #ffc107;
+  --bg-color: #F5F5F5;
+  --text-color: #333;
+  --text-light: #757575;
+  --white: #ffffff;
+  --border-radius: 8px;
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+  --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-color);
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  color: var(--text-color);
+  -webkit-font-smoothing: antialiased;
+  padding-bottom: 70px; /* Space for bottom nav */
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Buttons */
+button {
+  cursor: pointer;
+  border: none;
+  border-radius: var(--border-radius);
+  font-weight: 600;
+  transition: opacity 0.2s;
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  color: var(--white);
+  padding: 8px 16px;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-dark);
+}
+
+.btn-secondary {
+  background-color: #eee;
+  color: #333;
+  padding: 8px 16px;
+}
+
+.btn-link {
+  background: none;
+  color: var(--primary-color);
+  padding: 0;
+}
+
+/* Cards */
+.card {
+  background: var(--white);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+}
+
+/* Typography */
+h1, h2, h3, h4 {
+  margin-top: 0;
+}
+
+.text-primary { color: var(--primary-color); }
+.text-white { color: var(--white); }
+.text-small { font-size: 0.85rem; color: var(--text-light); }
+.font-bold { font-weight: bold; }
+
+/* Utilities */
+.w-100 { width: 100%; }
+.flex { display: flex; }
+.flex-col { display: flex; flex-direction: column; }
+.items-center { align-items: center; }
+.justify-between { justify-content: space-between; }
+.gap-2 { gap: 8px; }
+.gap-4 { gap: 16px; }
+.mt-2 { margin-top: 8px; }
+.mb-2 { margin-bottom: 8px; }
+.p-4 { padding: 16px; }
+.p-2 { padding: 8px; }
+
+/* Input Fields */
+input, select, textarea {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 10px;
+  width: 100%;
+  box-sizing: border-box;
+  font-family: inherit;
+}
+
+input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+}
