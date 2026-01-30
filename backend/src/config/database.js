@@ -1,13 +1,19 @@
 const { Sequelize } = require('sequelize');
 const env = require('./env');
 
-const sequelize = new Sequelize(env.DB_NAME, env.DB_USER, env.DB_PASS, {
-  host: env.DB_HOST,
-  port: env.DB_PORT,
-  dialect: 'mysql',
-  logging: false,
-  dialectOptions: env.DB_SSL ? { ssl: { require: true, rejectUnauthorized: false } } : undefined,
-});
+const sequelize = env.DB_URL
+  ? new Sequelize(env.DB_URL, {
+      dialect: 'mysql',
+      logging: false,
+      dialectOptions: env.DB_SSL ? { ssl: { require: true, rejectUnauthorized: false } } : undefined,
+    })
+  : new Sequelize(env.DB_NAME, env.DB_USER, env.DB_PASS, {
+      host: env.DB_HOST,
+      port: env.DB_PORT,
+      dialect: 'mysql',
+      logging: false,
+      dialectOptions: env.DB_SSL ? { ssl: { require: true, rejectUnauthorized: false } } : undefined,
+    });
 
 const connectDB = async () => {
   try {
