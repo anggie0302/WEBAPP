@@ -7,6 +7,7 @@ const customerRoutes = require('./routes/customerRoutes');
 const restaurantRoutes = require('./routes/restaurantRoutes');
 const orderRoutes = require('./routes/orderRoutes');
 const driverRoutes = require('./routes/driverRoutes');
+const healthRoutes = require('./routes/healthRoutes');
 
 const app = express();
 
@@ -19,6 +20,7 @@ app.use('/api/customer', customerRoutes);
 app.use('/api/restaurant', restaurantRoutes);
 app.use('/api/orders', orderRoutes);
 app.use('/api/driver', driverRoutes);
+app.use('/api/health', healthRoutes);
 
 app.get('/', (req, res) => {
   res.send('Food Delivery Backend is Running!');
