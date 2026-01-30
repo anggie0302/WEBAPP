@@ -20,6 +20,10 @@ app.use('/api/restaurant', restaurantRoutes);
 app.use('/api/orders', orderRoutes);
 app.use('/api/driver', driverRoutes);
 
+app.get('/', (req, res) => {
+  res.send('Food Delivery Backend is Running!');
+});
+
 app.use(errorHandler);
 
 module.exports = app;
